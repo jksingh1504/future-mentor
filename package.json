@@ -1,0 +1,19 @@
+{
+  "name": "frelance-backend",
+  "version": "1.0.0",
+  "description": "\"Future Mentor backend node.js\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jyoti-Metapercept/future-mentor.git"
+  },
+  "author": "\"Jyoti Kamal Singh\"",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jyoti-Metapercept/future-mentor/issues"
+  },
+  "homepage": "https://github.com/Jyoti-Metapercept/future-mentor#readme"
+}
