@@ -6,3 +6,9 @@ exports.addCity = function (req, res, next) {
     .then((data) => res.status(201).json(data))
     .catch((err) => next(err));
 };
+exports.getCities = function (req, res, next) {
+  cityServices
+    .getCities()
+    .then((data) => res.status(200).json(data))
+    .catch((err) => next(err));
+};
