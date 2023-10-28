@@ -12,3 +12,9 @@ exports.getServices = function (req, res, next) {
     .then((data) => res.status(200).json(data))
     .catch((err) => next(err));
 };
+exports.getByCategoryId = function (req, res, next) {
+  services
+    .getByCategoryId(req)
+    .then((data) => res.status(200).json(data))
+    .catch((err) => next(err));
+};

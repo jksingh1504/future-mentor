@@ -8,6 +8,7 @@ const serviceProviderSchema = new mongoose.Schema({
   contact: { type: Number, required: true },
   address: { type: String },
   rating: { type: Number },
+  serviceRef:{ type: mongoose.Schema.Types.ObjectId, required: true },
   categoryRef: { type: mongoose.Schema.Types.ObjectId, required: true },
 });
 
