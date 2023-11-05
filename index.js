@@ -1,20 +1,20 @@
 const express = require("express")
 const cors = require("cors")
-const errorHandler = require("./middlewares/errorHandler")
-const {connectDB} = require("./config/db.connect.js")
-const {jwtAuth} = require("./middlewares/expressJwt")
-require("dotenv").config({path:"./config/.env"})
+const errorHandler = require("./app/middlewares/errorHandler")
+const {connectDB} = require("./app/config/db.connect.js")
+const {jwtAuth} = require("./app/middlewares/expressJwt")
+require("dotenv").config({path:"./app/config/.env"})
 //setting up environment variables
 const {PORT,MONGO_URI,SECRET_KEY} = process.env
 const app = express()
 // setting up middlewares
 app.use(express.json(),cors(),jwtAuth(SECRET_KEY))
 //importing routes
-const userRoutes = require("./routes/userRoutes.js")
-const cityRoutes = require("./routes/cityRoutes.js")
-const categoryRoutes = require("./routes/categoryRoutes.js")
-const serviceRoutes = require("./routes/serviceRoutes.js")
-const serviceProvderRoutes = require("./routes/serviceProviderRoutes.js")
+const userRoutes = require("./app/routes/userRoutes.js")
+const cityRoutes = require("./app/routes/cityRoutes.js")
+const categoryRoutes = require("./app/routes/categoryRoutes.js")
+const serviceRoutes = require("./app/routes/serviceRoutes.js")
+const serviceProvderRoutes = require("./app/routes/serviceProviderRoutes.js")
 
 // using routes for providing services on different endpoints
 app.use("/api",userRoutes.auth)

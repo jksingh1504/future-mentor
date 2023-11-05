@@ -2,7 +2,7 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const { sendMail } = require("../../../utilities/sendMail.js");
 const user = require("../../../model/user/user.model.js");
-require("dotenv").config({ path: "./config/.env" });
+require("dotenv").config({ path: "./app/config/.env" });
 const speakeasy = require("speakeasy");
 module.exports = { verify, register, login };
 const otpgenerator = speakeasy.generateSecret({ length: 6 });

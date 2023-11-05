@@ -1,5 +1,5 @@
 const nodemailer = require("nodemailer")
-require("dotenv").config({path:"./config/.env"}) 
+require("dotenv").config({path:"./app/config/.env"}) 
 
 exports.sendMail = async function (mailTo, subject, mailBody) {
     try {
