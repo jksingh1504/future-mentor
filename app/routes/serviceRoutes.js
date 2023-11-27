@@ -1,3 +1,3 @@
 module.exports = {
-    serviceCRUD : require("./services/service.crud.js")
+    serviceCRUD : require("./service/service.crud.js")
 }

@@ -14,14 +14,14 @@ const userRoutes = require("./app/routes/userRoutes.js")
 const cityRoutes = require("./app/routes/cityRoutes.js")
 const categoryRoutes = require("./app/routes/categoryRoutes.js")
 const serviceRoutes = require("./app/routes/serviceRoutes.js")
-const serviceProvderRoutes = require("./app/routes/serviceProviderRoutes.js")
+const facilityRoutes = require("./app/routes/facilityRoutes.js")
 
 // using routes for providing services on different endpoints
 app.use("/api",userRoutes.auth)
 app.use("/api",cityRoutes.cityCRUD)
 app.use("/api",categoryRoutes.categoryCRUD)
 app.use("/api",serviceRoutes.serviceCRUD)
-app.use("/api",serviceProvderRoutes.serviceProviderCRUD)
+app.use("/api",facilityRoutes.facilityCRUD)
 
 // error handler
 app.use(errorHandler)

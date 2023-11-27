@@ -1,39 +1,39 @@
-const serviceProvider = require("../../model/serviceProviders/serviceProvider.model.js");
+const facility = require("../../model/facility/facility.model.js");
 const { sendMail } = require("../../utilities/sendMail.js");
 module.exports = {
-  addServiceProviders,
-  getByServiceId,
+  addFacility,
+  getByCategoryRef,
   getById,
   bookAppointment,
 };
 
-async function addServiceProviders(serviceProviderDetails) {
+async function addFacility(facilityDetails) {
   try {
-    const newServiceProvider = new serviceProvider(serviceProviderDetails);
-    await newServiceProvider.save();
-    return newServiceProvider;
+    const newFacility = new facility(facilityDetails);
+    await newFacility.save();
+    return newFacility;
   } catch (error) {
     throw error;
   }
 }
-async function getByServiceId(req) {
+async function getByCategoryRef(req) {
   try {
-    const { serviceRef } = req.query;
-    const serviceProviders = await serviceProvider.find({
-      serviceRef,
+    const { categoryRef } = req.query;
+    const facilityDetails = await facility.find({
+      categoryRef,
     });
-    return { serviceProviders };
+    return { facilityDetails };
   } catch (error) {
     throw error;
   }
 }
 async function getById(req) {
   try {
-    const { serviceProviderId } = req.query;
-    const serviceProviderDetails = await serviceProvider.findOne({
-      _id: serviceProviderId,
+    const { facilityId } = req.query;
+    const facilityDetails = await facility.findOne({
+      _id: facilityId,
     });
-    return { serviceProviderDetails };
+    return { facilityDetails };
   } catch (error) {
     throw error;
   }
@@ -45,7 +45,7 @@ async function bookAppointment(params) {
       DoctorName,
       AppointmentDate,
       AppointmentTime,
-      serviceProviderDetails,
+      facilityDetails,
       userDetails,
     } = params;
     sendMail(
@@ -60,9 +60,9 @@ async function bookAppointment(params) {
       `
     );
     sendMail(
-      serviceProviderDetails.email,
+      facilityDetails.email,
       "Appointment request recieved (Healthify app)",
-      `<p style="margin-bottom:24px">Hi ${serviceProviderDetails.name} Team,</p>
+      `<p style="margin-bottom:24px">Hi ${facilityDetails.name} Team,</p>
       <p>You have got an appointment request at ${HospitalName} with, ${DoctorName}, on date ${AppointmentDate}, at Time ${AppointmentTime} by Mr./Ms. ${userDetails.userName}.</p>
       <p>The user's email is ${userDetails.email}, and contact is ${userDetails.contact}.</p>
       <p style="margin-bottom:24px">Please check your appointment log and contact to the user in case of a confirmed appointment.</p>

@@ -1,25 +1,25 @@
-const serviceProviderServices = require("../../services/serviceProvider/serviceProvider.crud.js");
+const facilityServices = require("../../services/facility/facility.crud.js");
 
-exports.addServiceProvider = function (req, res, next) {
-  serviceProviderServices
-    .addServiceProviders(req.body)
+exports.addFacility = function (req, res, next) {
+  facilityServices
+    .addFacility(req.body)
     .then((data) => res.status(201).json(data))
     .catch((err) => next(err));
 };
-exports.getByServiceId = function (req, res, next) {
-  serviceProviderServices
-    .getByServiceId(req)
+exports.getByCategoryRef = function (req, res, next) {
+  facilityServices
+    .getByCategoryRef(req)
     .then((data) => res.status(201).json(data))
     .catch((err) => next(err));
 };
 exports.getById = function (req, res, next) {
-  serviceProviderServices
+  facilityServices
     .getById(req)
     .then((data) => res.status(201).json(data))
     .catch((err) => next(err));
 };
 exports.bookAppointment = function (req, res, next) {
-  serviceProviderServices
+  facilityServices
     .bookAppointment(req.body)
     .then((data) => res.status(201).json(data))
     .catch((err) => next(err));

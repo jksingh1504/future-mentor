@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
 
-const serviceProviderSchema = new mongoose.Schema({
+const facilitySchema = new mongoose.Schema({
   name: { type: String, required: true },
-  serviceDesc: { type: String, required: true },
+  shortDesc: { type: String, required: true },
   // speciality: { type: [String], default: [] },
   email: { type: String, required: true },
   contact: { type: Number, required: true },
@@ -12,9 +12,9 @@ const serviceProviderSchema = new mongoose.Schema({
   categoryRef: { type: mongoose.Schema.Types.ObjectId, required: true },
 });
 
-const serviceProvider = mongoose.model(
-  "serviceProvider",
-  serviceProviderSchema
+const facility = mongoose.model(
+  "facility",
+  facilitySchema
 );
 
-module.exports = serviceProvider;
+module.exports = facility;
